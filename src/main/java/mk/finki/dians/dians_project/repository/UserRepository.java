@@ -14,10 +14,13 @@ public class UserRepository {
         return DataHolder.users;
     }
 
+    public Optional<User> findByUsernameOrPassword(String username,String password) {
+        return DataHolder.users.stream().filter(user -> user.getUsername().equals(username) && user.getPassword().equals(password)).findFirst();
+    }
+
     public Optional<User> findByUsername(String username) {
         return DataHolder.users.stream().filter(user -> user.getUsername().equals(username)).findFirst();
     }
-
     public User save(String name, String surname, String username, String password, String email) {
         DataHolder.users.removeIf(user -> user.getUsername().equals(username));
         User u = new User(name, surname, username, password, email);

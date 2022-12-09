@@ -1,7 +1,11 @@
 package mk.finki.dians.dians_project.service;
 
+import mk.finki.dians.dians_project.exceptions.InvalideUsernameOrPasswordException;
+import mk.finki.dians.dians_project.exceptions.PasswordsDoNotMatchException;
+import mk.finki.dians.dians_project.exceptions.UsernameAlreadyExistsException;
 import mk.finki.dians.dians_project.model.User;
 import mk.finki.dians.dians_project.repository.UserRepository;
+import mk.finki.dians.dians_project.service.impl.UserService;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,8 +34,15 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(username);
     }
 
+
     @Override
-    public User save(String name, String surname, String username, String password, String email) {
-        return userRepository.save(name, surname, username, password, email);
+    public User register(String username, String password, String repeatPassword, String name, String surname) {
+        if (username==null|| username.isEmpty() || password==null || password.isEmpty())
+         throw new InvalideUsernameOrPasswordException();
+        if(!password.equals(repeatPassword))
+         throw new PasswordsDoNotMatchException();
+        if(this.userRepository.findByUsername(username).isPresent())
+         throw new UsernameAlreadyExistsException();
+        return userRepository.save(username, password, repeatPassword, name, surname);
     }
 }
