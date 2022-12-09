@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleHomepage.css">
 </head>
 <body>
 <div class="page">
     <nav>
         <ul>
-            <li><a href="" class="active">Почетна</a></li>
-            <li><a href="">Мапа</a></li>
-            <li><a href="">Регистрација</a></li>
-            <li><a href="">Најава</a></li>
+            <li><a href="home.html" class="active">Почетна</a></li>
+            <li><a href="signIn.html">Регистрација</a></li>
+            <li><a href="logIn.html">Најава</a></li>
         </ul>
     </nav>
 
@@ -22,7 +20,8 @@
             <div class="desc">Пронајди го најблискиот <strong>авто-сервис</strong></div>
             <div id="button">
                 <form>
-                    <button type="button">Мапа</button>
+                    <button type="button" id="signIn">Регистрирај се</button>
+                    <button type="button" id="logIn">Најави се</button>
                 </form>
             </div>
         </div>
