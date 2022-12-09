@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.repository;
+package mk.finki.dians.dians_project.repos;
 
 import mk.finki.dians.dians_project.bootstrap.DataHolder;
 import mk.finki.dians.dians_project.model.User;

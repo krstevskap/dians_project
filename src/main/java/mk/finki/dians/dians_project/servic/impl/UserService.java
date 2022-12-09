@@ -1,8 +1,7 @@
-package mk.finki.dians.dians_project.service.impl;
+package mk.finki.dians.dians_project.servic.impl;
 
 import mk.finki.dians.dians_project.model.User;
 
-import javax.management.relation.Role;
 import java.util.List;
 import java.util.Optional;
 

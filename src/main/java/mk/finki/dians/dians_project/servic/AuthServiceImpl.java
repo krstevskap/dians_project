@@ -1,10 +1,10 @@
-package mk.finki.dians.dians_project.service;
+package mk.finki.dians.dians_project.servic;
 
-import mk.finki.dians.dians_project.exceptions.InvalidCredentialException;
-import mk.finki.dians.dians_project.exceptions.InvalidUserCredentialsException;
+import mk.finki.dians.dians_project.except.InvalidCredentialException;
+import mk.finki.dians.dians_project.except.InvalidUserCredentialsException;
 import mk.finki.dians.dians_project.model.User;
-import mk.finki.dians.dians_project.repository.UserRepository;
-import mk.finki.dians.dians_project.service.impl.AuthService;
+import mk.finki.dians.dians_project.repos.UserRepository;
+import mk.finki.dians.dians_project.servic.impl.AuthService;
 
 public class AuthServiceImpl implements AuthService {
 

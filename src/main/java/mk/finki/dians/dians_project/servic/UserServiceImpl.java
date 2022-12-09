@@ -1,11 +1,11 @@
-package mk.finki.dians.dians_project.service;
+package mk.finki.dians.dians_project.servic;
 
-import mk.finki.dians.dians_project.exceptions.InvalideUsernameOrPasswordException;
-import mk.finki.dians.dians_project.exceptions.PasswordsDoNotMatchException;
-import mk.finki.dians.dians_project.exceptions.UsernameAlreadyExistsException;
+import mk.finki.dians.dians_project.except.InvalideUsernameOrPasswordException;
+import mk.finki.dians.dians_project.except.PasswordsDoNotMatchException;
+import mk.finki.dians.dians_project.except.UsernameAlreadyExistsException;
 import mk.finki.dians.dians_project.model.User;
-import mk.finki.dians.dians_project.repository.UserRepository;
-import mk.finki.dians.dians_project.service.impl.UserService;
+import mk.finki.dians.dians_project.repos.UserRepository;
+import mk.finki.dians.dians_project.servic.impl.UserService;
 
 import java.util.List;
 import java.util.Optional;

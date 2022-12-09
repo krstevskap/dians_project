@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.exceptions;
+package mk.finki.dians.dians_project.except;
 
 public class InvalideUsernameOrPasswordException extends RuntimeException {
     public InvalideUsernameOrPasswordException() {
