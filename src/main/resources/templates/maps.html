@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maps</title>
+  <link th:href="@{/css/homeStyle.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="page">
+  <nav>
+    <ul>
+      <li><a href="home.html" >Почетна</a></li>
+      <li><a href="maps.html" class="active">Мапа</a></li>
+      <li><a href="">Регистрација</a></li>
+      <li><a href="logIn.html">Најава</a></li>
+    </ul>
+  </nav>
+
+  <div class="map">
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1AGKFZJgQOMKOmVqv1sMxiqyD8ICYBHs&ehbc=2E312F"
+            width="640"
+            height="480"
+            class="mapImage">
+    </iframe>
+  </div>
+</div>
+</body>
+</html>

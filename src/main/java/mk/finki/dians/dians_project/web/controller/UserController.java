@@ -15,7 +15,17 @@ public class UserController {
 //    }
 
     @GetMapping
-    public String getHomepage(){
+    public String getHomepage() {
         return "home";
+    }
+
+    @GetMapping("maps")
+    public String getMapPage() {
+        return "maps";
+    }
+
+    @GetMapping("login")
+    public String getLoginPage() {
+        return "logIn";
     }
 }
