@@ -1,32 +1,42 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
-    <link rel="stylesheet" href="styleHomepage.css">
+    <link th:href="@{/css/homeStyle.css}" rel="stylesheet" />
 </head>
 <body>
 <div class="page">
     <nav>
         <ul>
-            <li><a href="home.html" class="active">Почетна</a></li>
-            <li><a href="signIn.html">Регистрација</a></li>
-            <li><a href="logIn.html">Најава</a></li>
+            <li><a href="" class="active">Почетна</a></li>
+            <li><a href="">Регистрација</a></li>
+            <li><a href="">Најава</a></li>
         </ul>
     </nav>
 
     <div class="main-container">
         <div class="box-left">
             <div class="desc">Пронајди го најблискиот <strong>авто-сервис</strong></div>
-            <div id="button">
+            <div id="button1">
                 <form>
                     <button type="button" id="signIn">Регистрирај се</button>
+                </form>
+            </div>
+            <div id="button2">
+                <form>
                     <button type="button" id="logIn">Најави се</button>
                 </form>
             </div>
         </div>
         <div class="box-right">
-            <img src="photo_4.png" class="illustration">
+<!--            <img th:src="@{/images/photo_4.jpg}" />-->
+            <img src="https://img.freepik.com/free-vector/auto-service-illustration_1284-20618.jpg?w=740&t=st=1670627797~exp=1670628397~hmac=56d39be22691f05e7a2432434eaa293350dd92764685cf7e45edae948c67ce12"
+                 class="illustration"
+                 alt=""/>
         </div>
 
     </div>

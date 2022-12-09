@@ -1,6 +1,5 @@
 package mk.finki.dians.dians_project.web.controller;
 
-import mk.finki.dians.dians_project.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,17 @@ public class UserController {
 //    }
 
     @GetMapping
-    public String getHomepage(){
+    public String getHomepage() {
         return "home";
+    }
+
+    @GetMapping("maps")
+    public String getMapPage() {
+        return "maps";
+    }
+
+    @GetMapping("login")
+    public String getLoginPage() {
+        return "logIn";
     }
 }
