@@ -1,3 +1,6 @@
+*{
+    font-family: sans-serif;
+}
 .mini-container {
     height: 430px;
     width: 300px;
@@ -13,7 +16,6 @@ form {
 }
 
 .box-right {
-    /*position: absolute;*/
     margin-top: 70px;
     background: #f4f5f6;
     border-radius: 10px;
@@ -83,5 +85,6 @@ form .input_field {
 h1 {
     margin-top: 30px;
     text-align: center;
+    color: #244A80;
 }
 
