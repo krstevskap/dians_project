@@ -25,7 +25,7 @@ public class Register {
     }
 
     @GetMapping
-    public String getRegisterPage(@RequestParam(required = false) String error, Model model){
+    public String getRegisterPage(@RequestParam(required = false) String error, Model model) {
         if (error == null || error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
@@ -43,11 +43,11 @@ public class Register {
                            @RequestParam String confirmPassword) {
         try {
             this.userService.register(name, surname, username, password, confirmPassword, email);
-            return "redirect:/logIn";
+            return "redirect:/login";
 
-        }catch (InvalidUsernameOrPasswordException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
+        } catch (InvalidUsernameOrPasswordException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
 
-            return  "redirect:/register?error=" + exception.getMessage();
+            return "redirect:/register?error=" + exception.getMessage();
         }
 
     }
