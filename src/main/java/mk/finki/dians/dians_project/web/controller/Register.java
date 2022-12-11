@@ -7,10 +7,8 @@ import mk.finki.dians.dians_project.service.impl.AuthService;
 import mk.finki.dians.dians_project.service.impl.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 @RequestMapping("/register")
@@ -26,7 +24,7 @@ public class Register {
 
     @GetMapping
     public String getRegisterPage(@RequestParam(required = false) String error, Model model) {
-        if (error == null || error.isEmpty()) {
+        if (error != null && !error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
         }
@@ -37,12 +35,12 @@ public class Register {
     @PostMapping
     public String register(@RequestParam String name,
                            @RequestParam String surname,
-                           @RequestParam String email,
                            @RequestParam String username,
+                           @RequestParam String email,
                            @RequestParam String password,
-                           @RequestParam String confirmPassword) {
+                           @RequestParam String confirmPass) {
         try {
-            this.userService.register(name, surname, username, password, confirmPassword, email);
+            this.userService.register(name, surname, username, password, confirmPass, email);
             return "redirect:/login";
 
         } catch (InvalidUsernameOrPasswordException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {

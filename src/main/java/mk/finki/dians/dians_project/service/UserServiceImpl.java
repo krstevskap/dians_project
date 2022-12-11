@@ -40,10 +40,11 @@ public class UserServiceImpl implements UserService {
     public User register(String name, String surname, String username, String password, String confirmPassword, String email) {
         if (username == null || username.isEmpty() || password == null || password.isEmpty())
             throw new InvalidUsernameOrPasswordException();
-        if (!(password.equals(confirmPassword)))
+        if (!password.equals(confirmPassword))
             throw new PasswordsDoNotMatchException();
         if (this.userRepository.findByUsername(username).isPresent())
             throw new UsernameAlreadyExistsException(username);
+//        User u = new User(name, surname, username, password, email);
         return userRepository.save(name, surname, username, password, email);
     }
 }
