@@ -33,7 +33,7 @@ public class LogIn {
         try {
             user = this.authService.login(request.getParameter("username"), request.getParameter("password"));
             request.getSession().setAttribute("user", user);
-            return "redirect:/home";
+            return "redirect:/home/maps";
 
         }catch (InvalidUserCredentialsException exception) {
             model.addAttribute("hasError", true);
