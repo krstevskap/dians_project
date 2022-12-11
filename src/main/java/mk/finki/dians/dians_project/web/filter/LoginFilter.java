@@ -25,7 +25,7 @@ public class LoginFilter implements Filter {
 
         String path=req.getServletPath();
 
-        if(!"/login".equals(path) && !"/register".equals(path) && !"home.css".equals(path)&& !"loginStyle.css".equals(path)&& !"register.css".equals(path) && user==null){
+        if(!"/login".equals(path) && !"/home".equals(path) && !"/register".equals(path) && !"home.css".equals(path)&& !"loginStyle.css".equals(path)&& !"register.css".equals(path) && user==null){
             resp.sendRedirect("/login");
         }
         else {
