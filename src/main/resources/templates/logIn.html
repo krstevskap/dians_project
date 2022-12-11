@@ -11,8 +11,8 @@
     <nav>
         <ul>
             <li><a href="home.html">Почетна</a></li>
-            <li><a href="">Регистрација</a></li>
-            <li><a href="logIn.html" class="active">Најава</a></li>
+            <li><a href="register.html">Регистрација</a></li>
+           <!-- <li><a href="logIn.html" class="active">Најава</a></li>-->
         </ul>
 
     </nav>
@@ -25,18 +25,18 @@
         </div>
         <div class="box-right">
             <h1>Најава</h1>
-            <form method="post">
+            <form method="post" action="/login">
                 <div class="input input_field">
-                    <input type="text" required>
+                    <input type="text" required name="username">
                     <label>Корисничко име</label>
                 </div>
                 <div class="input input_field">
-                    <input type="password" required>
+                    <input type="password" required name="password">
                     <label>Лозинка</label>
                 </div>
                 <input type="submit" value="Најави се" id="smb">
                 <div class="sign">
-                    <a href="#">Регистрирај се</a>
+                    <a href="register.html">Регистрирај се</a>
                 </div>
             </form>
         </div>

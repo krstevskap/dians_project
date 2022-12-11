@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.servic.impl;
+package mk.finki.dians.dians_project.service.impl;
 
 import mk.finki.dians.dians_project.model.User;
 

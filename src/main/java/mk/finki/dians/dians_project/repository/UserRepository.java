@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.repos;
+package mk.finki.dians.dians_project.repository;
 
 import mk.finki.dians.dians_project.bootstrap.DataHolder;
 import mk.finki.dians.dians_project.model.User;
@@ -22,7 +22,7 @@ public class UserRepository {
         return DataHolder.users.stream().filter(user -> user.getUsername().equals(username)).findFirst();
     }
     public User save(String name, String surname, String username, String password, String email) {
-        DataHolder.users.removeIf(user -> user.getUsername().equals(username));
+       //DataHolder.users.removeIf(user -> user.getUsername().equals(username));
         User u = new User(name, surname, username, password, email);
         DataHolder.users.add(u);
         return u;

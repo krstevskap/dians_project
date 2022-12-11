@@ -1,11 +1,13 @@
-package mk.finki.dians.dians_project.servic;
+package mk.finki.dians.dians_project.service;
 
-import mk.finki.dians.dians_project.except.InvalidCredentialException;
-import mk.finki.dians.dians_project.except.InvalidUserCredentialsException;
+import mk.finki.dians.dians_project.exception.InvalidCredentialException;
+import mk.finki.dians.dians_project.exception.InvalidUserCredentialsException;
 import mk.finki.dians.dians_project.model.User;
-import mk.finki.dians.dians_project.repos.UserRepository;
-import mk.finki.dians.dians_project.servic.impl.AuthService;
+import mk.finki.dians.dians_project.repository.UserRepository;
+import mk.finki.dians.dians_project.service.impl.AuthService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;

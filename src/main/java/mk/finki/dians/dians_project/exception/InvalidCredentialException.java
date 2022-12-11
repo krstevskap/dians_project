@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.except;
+package mk.finki.dians.dians_project.exception;
 
 public class InvalidCredentialException extends RuntimeException {
     public InvalidCredentialException() {

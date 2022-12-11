@@ -29,8 +29,8 @@ public class UserController {
         return "logIn";
     }
 
-    @GetMapping("sign")
-    public String getSignInPage(){
-        return "register";
-    }
+//    @GetMapping("sign")
+//    public String getSignInPage(){
+//        return "register";
+//    }
 }
