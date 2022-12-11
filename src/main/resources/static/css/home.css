@@ -117,3 +117,8 @@ button:hover {
 .custom-shape-divider-bottom-1670348380 .shape-fill {
     fill: #244A80;
 }
+
+.link{
+    text-decoration: none;
+    color: white;
+}
