@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link th:href="@{/css/home.css}" rel="stylesheet" />
-    <link th:href="@{/css/loginStyle.css}" rel="stylesheet" />
+    <link href="/home.css" rel="stylesheet" />
+    <link href="/loginStyle.css" rel="stylesheet" />
 </head>
 <body>
 <div class="page">
@@ -27,12 +27,10 @@
             <h1>Најава</h1>
             <form method="post" action="/login">
                 <div class="input input_field">
-                    <input type="text" required name="username">
-                    <label>Корисничко име</label>
+                    <input type="text" required name="username" placeholder="Корисничко име">
                 </div>
                 <div class="input input_field">
-                    <input type="password" required name="password">
-                    <label>Лозинка</label>
+                    <input type="password" required name="password" placeholder="Лозинка">
                 </div>
                 <input type="submit" value="Најави се" id="smb">
                 <div class="sign">

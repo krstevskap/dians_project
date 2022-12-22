@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping(value = {"/home","/"})
 public class UserController {
 
 //    private final UserService userService;
@@ -24,10 +24,6 @@ public class UserController {
         return "maps";
     }
 
-    @GetMapping("login")
-    public String getLoginPage() {
-        return "logIn";
-    }
 
 //    @GetMapping("sign")
 //    public String getSignInPage(){

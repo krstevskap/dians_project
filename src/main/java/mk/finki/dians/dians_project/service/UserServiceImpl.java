@@ -1,29 +1,27 @@
 package mk.finki.dians.dians_project.service;
 
-import mk.finki.dians.dians_project.model.exception.InvalidUsernameOrPasswordException;
-import mk.finki.dians.dians_project.model.exception.PasswordsDoNotMatchException;
-import mk.finki.dians.dians_project.model.exception.UsernameAlreadyExistsException;
+import mk.finki.dians.dians_project.model.exception.*;
 import mk.finki.dians.dians_project.model.User;
 import mk.finki.dians.dians_project.repository.jpa.UserRepositoryJPA;
 import mk.finki.dians.dians_project.service.impl.UserService;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepositoryJPA userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepositoryJPA userRepository) {
+
+    public UserServiceImpl(UserRepositoryJPA userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-
-    @Override
-    public Optional<User> findByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
 
 
     @Override
@@ -34,7 +32,21 @@ public class UserServiceImpl implements UserService {
             throw new PasswordsDoNotMatchException();
         if (this.userRepository.findByUsername(username).isPresent())
             throw new UsernameAlreadyExistsException(username);
-       User u = new User(name, surname, username, password, email);
+       User u = new User(name, surname, username, passwordEncoder.encode(password), email);
         return this.userRepository.save(u);
+    }
+
+    @Override
+    public User login(String username, String password) {
+        if( username==null || username.isEmpty() || password==null || password.isEmpty()){
+            throw new InvalidCredentialException();
+        }
+        return userRepository.findByUsernameOrPassword(username,password).orElseThrow(InvalidUserCredentialsException::new);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username).orElseThrow(()-> new
+                UsernameNotFoundException(username));
     }
 }
