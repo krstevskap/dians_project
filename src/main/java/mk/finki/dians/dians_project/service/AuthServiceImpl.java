@@ -1,7 +1,7 @@
 package mk.finki.dians.dians_project.service;
 
-import mk.finki.dians.dians_project.exception.InvalidCredentialException;
-import mk.finki.dians.dians_project.exception.InvalidUserCredentialsException;
+import mk.finki.dians.dians_project.model.exception.InvalidCredentialException;
+import mk.finki.dians.dians_project.model.exception.InvalidUserCredentialsException;
 import mk.finki.dians.dians_project.model.User;
 import mk.finki.dians.dians_project.repository.UserRepository;
 import mk.finki.dians.dians_project.service.impl.AuthService;

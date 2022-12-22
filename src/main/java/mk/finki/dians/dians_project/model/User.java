@@ -1,14 +1,24 @@
 package mk.finki.dians.dians_project.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
+
 @Data
+@Entity
+@Table(name = "as_user")
 public class User {
     private String name;
     private String surname;
+    @Id
     private String username;
     private String password;
     private String email;
+
+    public User() {
+    }
 
     public User(String name, String surname, String username, String password, String email) {
         this.name = name;

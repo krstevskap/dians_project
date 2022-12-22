@@ -1,8 +1,8 @@
 package mk.finki.dians.dians_project.web.controller;
 
-import mk.finki.dians.dians_project.exception.InvalidUsernameOrPasswordException;
-import mk.finki.dians.dians_project.exception.PasswordsDoNotMatchException;
-import mk.finki.dians.dians_project.exception.UsernameAlreadyExistsException;
+import mk.finki.dians.dians_project.model.exception.InvalidUsernameOrPasswordException;
+import mk.finki.dians.dians_project.model.exception.PasswordsDoNotMatchException;
+import mk.finki.dians.dians_project.model.exception.UsernameAlreadyExistsException;
 import mk.finki.dians.dians_project.service.impl.AuthService;
 import mk.finki.dians.dians_project.service.impl.UserService;
 import org.springframework.stereotype.Controller;
@@ -14,11 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/register")
 public class Register {
 
-    private final AuthService authService;
     private final UserService userService;
 
-    public Register(AuthService authService, UserService userService) {
-        this.authService = authService;
+    public Register(UserService userService) {
         this.userService = userService;
     }
 

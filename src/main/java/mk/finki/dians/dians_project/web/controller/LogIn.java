@@ -1,7 +1,7 @@
 package mk.finki.dians.dians_project.web.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
-import mk.finki.dians.dians_project.exception.InvalidUserCredentialsException;
+import mk.finki.dians.dians_project.model.exception.InvalidUserCredentialsException;
 import mk.finki.dians.dians_project.model.User;
 import mk.finki.dians.dians_project.service.impl.AuthService;
 import org.springframework.stereotype.Controller;
