@@ -38,7 +38,7 @@ public class Register {
                            @RequestParam String password,
                            @RequestParam String confirmPass) {
         try {
-            this.userService.register(name, surname, username, password, confirmPass, email);
+            this.userService.register(username, password, name, surname, confirmPass, email);
             return "redirect:/login";
 
         } catch (InvalidUsernameOrPasswordException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
