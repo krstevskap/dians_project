@@ -94,4 +94,15 @@ public class UserRegistrationTest {
         Mockito.verify(this.userService).register(username, password, "name", "surname", "password", "email");
     }
 
+    @Test
+    public void testPasswordMismatch() throws PasswordsDoNotMatchException, UsernameAlreadyExistsException, InvalidUsernameOrPasswordException {
+        String username = "username";
+        String password = "password";
+        String confirmPassword = "otherPassword";
+        Assert.assertThrows("PasswordsDoNotMatchException expected",
+                PasswordsDoNotMatchException.class,
+                () -> this.userService.register(username, password, "name", "surname", confirmPassword, "email"));
+        Mockito.verify(this.userService).register(username, password, "name", "surname", confirmPassword, "email");
+    }
+
 }
