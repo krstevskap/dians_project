@@ -46,7 +46,6 @@ public class UserRegistrationTest {
         User user = this.userService.register("username", "password", "name", "surname", "password", "email");
 
         Mockito.verify(this.userService).register("username", "password", "name", "surname", "password", "email");
-        System.out.println(user);
 
 
         Assert.assertNotNull("User is null", user);
@@ -75,5 +74,24 @@ public class UserRegistrationTest {
         Mockito.verify(this.userService).register(username, "password","password", "surname", "confirmPassword", "email");
     }
 
+    @Test
+    public void testEmptyPassword() throws PasswordsDoNotMatchException, UsernameAlreadyExistsException, InvalidUsernameOrPasswordException {
+        String username = "username";
+        String password = "";
+        Assert.assertThrows("InvalidArgumentException expected",
+                InvalidUsernameOrPasswordException.class,
+                () -> this.userService.register(username, password, "name", "surname", "password","email"));
+        Mockito.verify(this.userService).register(username, password, "name", "surname", "password", "email");
+    }
+
+    @Test
+    public void testNullPassword() throws PasswordsDoNotMatchException, UsernameAlreadyExistsException, InvalidUsernameOrPasswordException {
+        String username = "username";
+        String password = null;
+        Assert.assertThrows("InvalidArgumentException expected",
+                InvalidUsernameOrPasswordException.class,
+                () -> this.userService.register(username, password, "name", "surname", "password", "email"));
+        Mockito.verify(this.userService).register(username, password, "name", "surname", "password", "email");
+    }
 
 }
