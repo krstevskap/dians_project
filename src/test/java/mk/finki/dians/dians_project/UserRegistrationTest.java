@@ -17,6 +17,8 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Optional;
+
 @RunWith(MockitoJUnitRunner.class)
 public class UserRegistrationTest {
 
@@ -103,6 +105,16 @@ public class UserRegistrationTest {
                 PasswordsDoNotMatchException.class,
                 () -> this.userService.register(username, password, "name", "surname", confirmPassword, "email"));
         Mockito.verify(this.userService).register(username, password, "name", "surname", confirmPassword, "email");
+    }
+    @Test
+    public void testDuplicateUsername() throws PasswordsDoNotMatchException, UsernameAlreadyExistsException, InvalidUsernameOrPasswordException {
+        User user = new User("username", "password", "name", "surname","email");
+        Mockito.when(this.userRepository.findByUsername(Mockito.anyString())).thenReturn(Optional.of(user));
+        String username = "username";
+        Assert.assertThrows("UsernameAlreadyExistsException expected",
+                UsernameAlreadyExistsException.class,
+                () -> this.userService.register(username, "password", "name", "surname", "password", "email"));
+        Mockito.verify(this.userService).register(username, "password", "name", "surname", "password", "email");
     }
 
 }
