@@ -7,13 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = {"/home","/"})
 public class UserController {
-
-//    private final UserService userService;
-
-//    public UserController(UserService userService) {
-//        this.userService = userService;
-//    }
-
     @GetMapping
     public String getHomepage() {
         return "home";
@@ -24,9 +17,4 @@ public class UserController {
         return "maps";
     }
 
-
-//    @GetMapping("sign")
-//    public String getSignInPage(){
-//        return "register";
-//    }
 }
