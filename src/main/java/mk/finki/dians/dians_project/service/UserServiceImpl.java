@@ -2,7 +2,7 @@ package mk.finki.dians.dians_project.service;
 
 import mk.finki.dians.dians_project.model.exception.*;
 import mk.finki.dians.dians_project.model.User;
-import mk.finki.dians.dians_project.repository.jpa.UserRepositoryJPA;
+import mk.finki.dians.dians_project.repository.UserRepositoryJPA;
 import mk.finki.dians.dians_project.service.impl.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

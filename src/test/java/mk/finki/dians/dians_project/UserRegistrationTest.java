@@ -4,7 +4,7 @@ import mk.finki.dians.dians_project.model.User;
 import mk.finki.dians.dians_project.model.exception.InvalidUsernameOrPasswordException;
 import mk.finki.dians.dians_project.model.exception.PasswordsDoNotMatchException;
 import mk.finki.dians.dians_project.model.exception.UsernameAlreadyExistsException;
-import mk.finki.dians.dians_project.repository.jpa.UserRepositoryJPA;
+import mk.finki.dians.dians_project.repository.UserRepositoryJPA;
 import mk.finki.dians.dians_project.service.UserServiceImpl;
 import mk.finki.dians.dians_project.service.impl.UserService;
 import org.junit.Assert;

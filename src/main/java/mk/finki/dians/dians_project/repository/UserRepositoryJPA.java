@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.repository.jpa;
+package mk.finki.dians.dians_project.repository;
 
 import mk.finki.dians.dians_project.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
