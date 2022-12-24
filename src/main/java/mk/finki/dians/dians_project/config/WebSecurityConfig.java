@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/","/home","/assets/**","/register","/login","/home.css","/loginStyle.css","/register.css").permitAll()
+                .antMatchers("/","/home","/register","/login","/home.css","/loginStyle.css","/register.css").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth){
         auth.authenticationProvider(usernamePasswordAuthenticationProvider);
     }
 }
