@@ -23,7 +23,7 @@ public class LogIn {
     }
 
     @GetMapping
-    public String getLogInPage(@RequestParam(required = false) String error, Model model) {
+    public String getLogInPage() {
         return "logIn";
     }
 
