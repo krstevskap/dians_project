@@ -23,21 +23,21 @@ public class UsernamePasswordAuthenticationProvider implements AuthenticationPro
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String username=authentication.getName();
+        String username = authentication.getName();
 
-        String password=authentication.getCredentials().toString();
+        String password = authentication.getCredentials().toString();
 
-        if("".equals(username) || "".equals(password)){
-            throw  new BadCredentialsException("Invalid Credentials");
+        if ("".equals(username) || "".equals(password)) {
+            throw new BadCredentialsException("Invalid Credentials");
         }
 
-        UserDetails userDetails=this.userService.loadUserByUsername(username);
+        UserDetails userDetails = this.userService.loadUserByUsername(username);
 
-        if (!passwordEncoder.matches(password,userDetails.getPassword())){
+        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
             throw new BadCredentialsException("Invalid Credits");
         }
 
-        return new UsernamePasswordAuthenticationToken(userDetails,userDetails.getPassword(),userDetails.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
 
     }
 
