@@ -1,9 +1,8 @@
 package mk.finki.dians.dians_project.web.controller;
 
-import mk.finki.dians.dians_project.exception.InvalidUsernameOrPasswordException;
-import mk.finki.dians.dians_project.exception.PasswordsDoNotMatchException;
-import mk.finki.dians.dians_project.exception.UsernameAlreadyExistsException;
-import mk.finki.dians.dians_project.service.impl.AuthService;
+import mk.finki.dians.dians_project.model.exception.InvalidUsernameOrPasswordException;
+import mk.finki.dians.dians_project.model.exception.PasswordsDoNotMatchException;
+import mk.finki.dians.dians_project.model.exception.UsernameAlreadyExistsException;
 import mk.finki.dians.dians_project.service.impl.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/register")
 public class Register {
 
-    private final AuthService authService;
     private final UserService userService;
-
-    public Register(AuthService authService, UserService userService) {
-        this.authService = authService;
+    public Register(UserService userService) {
         this.userService = userService;
     }
 
@@ -29,7 +25,6 @@ public class Register {
             model.addAttribute("error", error);
         }
         return "register";
-
     }
 
     @PostMapping
@@ -40,13 +35,12 @@ public class Register {
                            @RequestParam String password,
                            @RequestParam String confirmPass) {
         try {
-            this.userService.register(name, surname, username, password, confirmPass, email);
+            this.userService.register(username, password, name, surname, confirmPass, email);
             return "redirect:/login";
 
         } catch (InvalidUsernameOrPasswordException | PasswordsDoNotMatchException | UsernameAlreadyExistsException exception) {
 
             return "redirect:/register?error=" + exception.getMessage();
         }
-
     }
 }

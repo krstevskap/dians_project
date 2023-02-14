@@ -1,20 +1,19 @@
 package mk.finki.dians.dians_project.web.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
-@RequestMapping(value = {"/home","/"})
-public class UserController {
+@RequestMapping("logout")
+public class Logout {
+
     @GetMapping
-    public String getHomepage() {
-        return "home";
+    public String logOut (HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "redirect:/login";
     }
-
-    @GetMapping("maps")
-    public String getMapPage() {
-        return "maps";
-    }
-
 }

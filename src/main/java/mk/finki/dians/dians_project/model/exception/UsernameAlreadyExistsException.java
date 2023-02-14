@@ -1,4 +1,4 @@
-package mk.finki.dians.dians_project.exception;
+package mk.finki.dians.dians_project.model.exception;
 
 public class UsernameAlreadyExistsException extends RuntimeException {
     public UsernameAlreadyExistsException(String username) {

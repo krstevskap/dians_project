@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
-    <link th:href="@{/css/home.css}" rel="stylesheet" />
-    <link th:href="@{/css/loginStyle.css}" rel="stylesheet" />
+    <link href="/home.css" rel="stylesheet" />
+    <link href="/loginStyle.css" rel="stylesheet" />
 </head>
 <body>
 <div class="page">
@@ -12,13 +12,11 @@
         <ul>
             <li><a href="/home">Почетна</a></li>
             <li><a href="/register">Регистрација</a></li>
-           <!-- <li><a href="logIn.html" class="active">Најава</a></li>-->
         </ul>
 
     </nav>
     <div class="main-container">
         <div class="box-left">
-<!--    <img th:src="@{/images/photo_5.png}" class="illustration" alt=""/>-->
             <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1670628348~exp=1670628948~hmac=9093b8f0c610360f1dd471d10e73dad12a207418ffdd35a03ac54d190bd44bed"
                  class="illustration"
                  alt=""/>
@@ -27,12 +25,10 @@
             <h1>Најава</h1>
             <form method="post" action="/login">
                 <div class="input input_field">
-                    <input type="text" required name="username">
-                    <label>Корисничко име</label>
+                    <input type="text" required name="username" placeholder="Корисничко име"/>
                 </div>
                 <div class="input input_field">
-                    <input type="password" required name="password">
-                    <label>Лозинка</label>
+                    <input type="password" required name="password" placeholder="Лозинка">
                 </div>
                 <input type="submit" value="Најави се" id="smb">
                 <div class="sign">
@@ -42,7 +38,6 @@
         </div>
 
     </div>
-</div>
 </div>
 </body>
 </html>
