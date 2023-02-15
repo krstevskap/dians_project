@@ -1,21 +1,31 @@
 version: "3"
+
 services:
 
   dians-db:
-
     image: "postgres"
-
     container_name: "dias_container"
-
     environment:
       - POSTGRES_USER=dias
       - POSTGRES_PASSWORD=dias123
       - POSTGRES_DB=avto-servis
-
     ports:
       - "5436:5432"
-
     volumes:
       - postgres-data:/var/lib/postgresql/data
+
+  dians-web:
+    build: .
+    image: my-springboot-app
+    container_name: "dians_web_container"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dians-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dians-db:5432/avto-servis
+      SPRING_DATASOURCE_USERNAME: dias
+      SPRING_DATASOURCE_PASSWORD: dias123
+
 volumes:
   postgres-data:
